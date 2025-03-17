@@ -3,6 +3,9 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UserModule } from './user/user.module';
+import { User } from './user/entity/user.entity';
+import { TodoModule } from './todo/todo.module';
+import { Todo } from './todo/entity/todo.entity';
 
 @Module({
   imports: [
@@ -13,10 +16,11 @@ import { UserModule } from './user/user.module';
       username: 'root',
       password: 'Saisam643@',
       database: 'user_todo_app',
-      entities: [],
+      entities: [User,Todo],
       synchronize: true,
     }),
     UserModule,
+    TodoModule,
   ],
   controllers: [AppController],
   providers: [AppService],

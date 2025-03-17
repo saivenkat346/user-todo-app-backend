@@ -23,7 +23,6 @@ export class UserController {
   @UsePipes(new ValidationPipe())
   CreateNewUser(@Body() newUser: UserDTO) {
     this.userService.createUser(newUser);
-    console.log(newUser);
     return {};
   }
 }
